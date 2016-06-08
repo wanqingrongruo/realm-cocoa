@@ -27,6 +27,7 @@ NSURL *RLMTestRealmURL(void);
 NSURL *RLMDefaultRealmURL(void);
 NSString *RLMRealmPathForFile(NSString *);
 NSData *RLMGenerateKey(void);
+NSURL *RLMNoteURLForBasePath(NSURL *basePath);
 #ifdef __cplusplus
 }
 #endif
