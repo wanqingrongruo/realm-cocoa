@@ -51,3 +51,5 @@ public typealias PropertyType = RLMPropertyType
 
 /// An opaque token used to unregister notification blocks from Realms.
 public typealias NotificationToken = RLMNotificationToken
+
+public typealias UnitTestHelper = RLMUnitTestHelper
