@@ -22,6 +22,9 @@ x.x.x Release notes (yyyy-MM-dd)
   transactions have been committed.
 * Fix a "Destruction of mutex in use" assertion failure after an error while
   opening a file.
+* Ensure that the initial call of a Results notification block is always passed
+  .Initial even if there is a write transaction between when the notification
+  is added and when the first notification is delivered.
 * Realm now throws an exception if an `Object` subclass is defined with a managed Swift `lazy` property.
   Objects with ignored `lazy` properties should now work correctly.
 * Update the LLDB script to work with recent changes to the implementation of `RLMResults`.
