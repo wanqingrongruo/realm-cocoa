@@ -344,7 +344,7 @@ static bool rawTypeIsComputedProperty(NSString *rawType) {
     else if ([_objcRawType isEqualToString:@"@\"NSNumber\""]) {
         const char *numberType = [propertyValue objCType];
         if (!numberType) {
-            @throw RLMException(@"Can't persist NSNumber directly: use a Swift-native number type or provide a default value, which allows to infer the type.");
+            @throw RLMException(@"Can't persist NSNumber directly: use a Swift-native number type or provide a default value, which allows to infer the type");
         }
         switch (*numberType) {
             case 'i':
