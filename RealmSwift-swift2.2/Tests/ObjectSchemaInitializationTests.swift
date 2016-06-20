@@ -136,6 +136,12 @@ class ObjectSchemaInitializationTests: TestCase {
             "Should throw when not ignoring a property of a type we can't manage")
         assertThrows(RLMObjectSchema(forObjectClass: SwiftObjectWithNonOptionalLinkProperty.self),
             "Should throw when not marking a link property as optional")
+
+        assertThrows(RLMObjectSchema(forObjectClass: SwiftObjectWithNSNumber.self),
+                     "Can't persist NSNumber directly: use a Swift-native number type or provide a default value, which allows to infer the type.")
+        assertThrows(RLMObjectSchema(forObjectClass: SwiftObjectWithOptionalNSNumber.self),
+                     "Can't persist NSNumber directly: use a Swift-native number type or provide a default value, which allows to infer the type.")
+
     }
 
     func testPrimaryKey() {
@@ -243,6 +249,14 @@ class SwiftObjectWithDatePrimaryKey: SwiftFakeObject {
     dynamic override class func primaryKey() -> String? {
         return "date"
     }
+}
+
+class SwiftObjectWithNSNumber: SwiftFakeObject {
+    dynamic var number = NSNumber()
+}
+
+class SwiftObjectWithOptionalNSNumber: SwiftFakeObject {
+    dynamic var number: NSNumber? = NSNumber()
 }
 
 class SwiftFakeObjectSubclass: SwiftFakeObject {
